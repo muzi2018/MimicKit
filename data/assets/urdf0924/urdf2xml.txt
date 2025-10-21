@@ -1,0 +1,4 @@
+﻿https://zhuanlan.zhihu.com/p/699075829
+~/.mujoco/mujoco-3.1.5/bin/compile xx.urdf xx.xml
+
+###
