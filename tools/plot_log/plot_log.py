@@ -33,7 +33,7 @@ max_x = -np.inf
 filter_window_size = 1
 
 for f, file_group in enumerate(files):
-    if not isinstance(file_group, list):
+    if not isinstance(file_group, list): 
         if os.path.isdir(file_group):
             files = os.listdir(file_group)
             files = filter(lambda f: "log" in f, files)
