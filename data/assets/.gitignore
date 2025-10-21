@@ -1,2 +1,13 @@
+# Ignore everything
 *
+
+# Except .gitignore
 !.gitignore
+
+# Except these folders (unignore the folder itself first)
+!urdf0924/
+!xml0924/
+
+# And their contents
+!urdf0924/**
+!xml0924/**
