@@ -1,4 +1,4 @@
 *
 !.gitignore
-!urdf0924/
-!xml0924/
+!urdf0924/**
+!xml0924/**
