@@ -1614,7 +1614,7 @@
 
 <mujoco>
       <compiler 
-      meshdir="/home/wang/MimicKit/data/assets/urdf0924/meshes" 
+      meshdir="../meshes/" 
       balanceinertia="true" 
       discardvisual="false" />
 </mujoco>
