@@ -10,7 +10,7 @@ import util.torch_util as torch_util
 
 class DeepMimicEnv(char_env.CharEnv):
     def __init__(self, config, num_envs, device, visualize):
-        env_config = config["env"]
+        env_config = config["env"] # parameter_wwj deepmimic_humanoid_env.yaml
         self._enable_early_termination = env_config["enable_early_termination"]
         self._termination_height = env_config["termination_height"]
         self._num_phase_encoding = env_config.get("num_phase_encoding", 0)
