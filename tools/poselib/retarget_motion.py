@@ -4,7 +4,7 @@ import json
 import numpy as np
 from poselib.core.rotation3d import *
 from poselib.skeleton.skeleton3d import SkeletonTree, SkeletonState, SkeletonMotion
-from poselib.visualization.common import plot_skeleton_state, plot_skeleton_motion_interactive
+from poselib.visualization.common import plot_skeleton_state, plot_skeleton_motion_interactive,plot_skeleton_states
 
 
 
@@ -20,7 +20,12 @@ Data required for retargeting are stored in a retarget config dictionary as a js
   - scale: scale offset from source to target skeleton
 """
 
-VISUALIZE = False
+# import numpy as np
+# data = np.load("/home/wang/MimicKit/tools/poselib/data/01_01_cmu.npy", allow_pickle=True)
+
+# exit()
+
+VISUALIZE = True
 
 def project_joints(motion):
     right_upper_arm_id = motion.skeleton_tree._node_indices["right_upper_arm"]
@@ -183,7 +188,23 @@ def main():
         retarget_data = json.load(f)
 
     # load and visualize t-pose files
-    source_tpose = SkeletonState.from_file(retarget_data["source_tpose"])
+    source_tpose = SkeletonState.from_file(retarget_data["source_tpose"]) # 'poselib/data/cmu_tpose.npy'
+    '''the joint rotation relative to the world coordinate system'''
+    # global_root_rotation: tensor([0.7071, 0.0000, 0.0000, 0.7071]) rotated 90 degree along x axis, align z up in cmu to y up in amp
+    # global_rotation: (N, 4) , N joints = 38
+    # global_translation: (N, 3) , N joints = 38
+    # global_transformation: (N, 7) , N joints = 38
+    
+    '''the joint rotation translation transformation relative to the parent joint'''
+    # local_rotation: (N, 4) , N joints = 38
+    # local_translation: (N, 3) , N joints = 38
+    # local_transformation: (N, 7) , N joints = 38
+    '''the root joint translation rotation to the world coordinate system'''
+    # root_translation = [0.0, 0.0, 17.8693]
+    # rotation = [0.7 0 0 0 0.7]  # rotate 90 degree along x axis in the world coordinate system
+    # skeleton_tree.node_names; skeleton_tree.parent_indices; skeleton_tree.local_translation=[0 0 17.8]
+    
+    
     if VISUALIZE:
         plot_skeleton_state(source_tpose)
 

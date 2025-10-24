@@ -17,6 +17,8 @@ def plot_skeleton_state(skeleton_state, task_name=""):
     logger.info("plotting {}".format(task_name))
     task = Draw3DSkeletonState(task_name=task_name, skeleton_state=skeleton_state)
     plotter = Matplotlib3DPlotter(task)
+    task.update(skeleton_state)
+    plotter.update()
     plotter.show()
 
 
