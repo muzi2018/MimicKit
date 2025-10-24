@@ -18,7 +18,7 @@ We also include the following RL algorithms:
 
 ## Installation
 
-Install IsaacGym: 
+Install IsaacGym:
 
 Install requirements:
 
