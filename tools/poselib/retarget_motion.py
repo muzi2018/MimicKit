@@ -204,18 +204,14 @@ def main():
     # rotation = [0.7 0 0 0 0.7]  # rotate 90 degree along x axis in the world coordinate system
     # skeleton_tree.node_names; skeleton_tree.parent_indices; skeleton_tree.local_translation=[0 0 17.8]
     
-    
-    if VISUALIZE:
-        plot_skeleton_state(source_tpose)
-
     target_tpose = SkeletonState.from_file(retarget_data["target_tpose"])
     if VISUALIZE:
-        plot_skeleton_state(target_tpose)
+        plot_skeleton_state(source_tpose, target_tpose)
 
     # load and visualize source motion sequence
     source_motion = SkeletonMotion.from_file(retarget_data["source_motion"])
-    if VISUALIZE:
-        plot_skeleton_motion_interactive(source_motion)
+    # if VISUALIZE:
+    #     plot_skeleton_motion_interactive(source_motion)
 
     # parse data from retarget config
     joint_mapping = retarget_data["joint_mapping"]

@@ -14,7 +14,7 @@ from ..core import logger
 from .skeleton_plotter_tasks import Draw3DSkeletonState
 
 
-def plot_skeleton_state(skeleton_state, task_name=""):
+def plot_skeleton_state(source_tpose, target_tpose, task_name=""):
     """
     Visualize a skeleton state using a standalone Matplotlib 3D plot.
 
@@ -22,16 +22,16 @@ def plot_skeleton_state(skeleton_state, task_name=""):
     :param task_name: string, optional
     """
     logger.info(f"plotting {task_name}")
-
-    task = Draw3DSkeletonState(task_name=task_name, skeleton_state=skeleton_state)
-    dots = task._dots_task  
-    color = getattr(dots, "color", "blue")
-    marker_size = getattr(dots, "marker_size", 5)
-    alpha = getattr(dots, "alpha", 1.0)
-
     fig = plt.figure()
     ax: Axes3D = fig.add_subplot(111, projection="3d")
-
+    
+    task_source = Draw3DSkeletonState(task_name=task_name, skeleton_state=source_tpose)
+    # task_target = Draw3DSkeletonState(task_name=task_name, skeleton_state=target_tpose)
+    
+    dots = task_source._dots_task  
+    color = task_source._dots_task.color
+    marker_size = getattr(dots, "marker_size", 5)
+    alpha = getattr(dots, "alpha", 1.0)
     ax.scatter(
         dots[:, 0],
         dots[:, 1],
@@ -41,11 +41,39 @@ def plot_skeleton_state(skeleton_state, task_name=""):
         s=marker_size,
         alpha=alpha
     )
+    
+    color = task_source._lines_task.color
+    for index in range(len(task_source._lines_task)):
+        ax.plot(
+            task_source._lines_task._lines[index, :, 0], task_source._lines_task._lines[index, :, 1],
+            color=color,
+            linewidth=task_source._lines_task.line_width,
+            alpha=task_source._lines_task.alpha
+        )
+        
+    
+    
+    
+
+    # dots = task_target._dots_task  
+    # color = task_target._dots_task.color
+    # marker_size = getattr(dots, "marker_size", 5)
+    # alpha = getattr(dots, "alpha", 1.0)
+    # ax.scatter(
+    #     dots[:, 0],
+    #     dots[:, 1],
+    #     dots[:, 2],
+    #     c=color,
+    #     marker=".",
+    #     s=marker_size,
+    #     alpha=alpha
+    # )
 
     ax.set_xlabel("X")
     ax.set_ylabel("Y")
     ax.set_zlabel("Z")
     ax.set_title(task_name)
+
 
     plt.show()
 
