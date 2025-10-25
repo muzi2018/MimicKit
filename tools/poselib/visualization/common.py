@@ -3,23 +3,52 @@ import os
 from ..core import logger
 from .plt_plotter import Matplotlib3DPlotter
 from .skeleton_plotter_tasks import Draw3DSkeletonMotion, Draw3DSkeletonState
+import matplotlib.pyplot as plt
+
+
+import logging
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
+
+from ..core import logger
+from .skeleton_plotter_tasks import Draw3DSkeletonState
 
 
 def plot_skeleton_state(skeleton_state, task_name=""):
     """
-    Visualize a skeleton state
+    Visualize a skeleton state using a standalone Matplotlib 3D plot.
 
-    :param skeleton_state:
-    :param task_name:
-    :type skeleton_state: SkeletonState
-    :type task_name: string, optional
+    :param skeleton_state: SkeletonState object
+    :param task_name: string, optional
     """
-    logger.info("plotting {}".format(task_name))
+    logger.info(f"plotting {task_name}")
+
     task = Draw3DSkeletonState(task_name=task_name, skeleton_state=skeleton_state)
-    plotter = Matplotlib3DPlotter(task)
-    task.update(skeleton_state)
-    plotter.update()
-    plotter.show()
+    dots = task._dots_task  
+    color = getattr(dots, "color", "blue")
+    marker_size = getattr(dots, "marker_size", 5)
+    alpha = getattr(dots, "alpha", 1.0)
+
+    fig = plt.figure()
+    ax: Axes3D = fig.add_subplot(111, projection="3d")
+
+    ax.scatter(
+        dots[:, 0],
+        dots[:, 1],
+        dots[:, 2],
+        c=color,
+        marker=".",
+        s=marker_size,
+        alpha=alpha
+    )
+
+    ax.set_xlabel("X")
+    ax.set_ylabel("Y")
+    ax.set_zlabel("Z")
+    ax.set_title(task_name)
+
+    plt.show()
+
 
 
 def plot_skeleton_states(skeleton_state, skip_n=1, task_name=""):
