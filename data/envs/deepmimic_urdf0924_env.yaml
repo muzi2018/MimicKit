@@ -17,19 +17,30 @@ env:
     zero_center_action: True
 
     ref_char_offset: [2.0, 0.0, 0.0] # m
-    init_pose: [0, 0, 0.8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.57, 0, 0, 0, 0, 0, 0, 1.57, 0, 0, 0]
+    init_pose: [ 2.6607384 ,  4.39282061,  0.89525044,  0.58787129,  0.04491948,
+        0.05951286, -0.8055109 , -0.24119847,  0.04380038, -0.16837189,
+        0.12652325, -0.0726367 ,  0.0165473 ,  0.42889868, -0.01310915,
+       -0.12491684,  0.07746574, -0.04552932, -0.01902841,  0.241858  ,
+        0.38693722, -1.33740856, -0.54038224,  0.27897872,  0.77540749,
+        0.        ,  0.        ,  0.38215764,  1.27771305,  0.5525991 ,
+        0.580778  ,  0.84561144,  0.        ,  0.        ]
 
     enable_early_termination: True
     termination_height: 0.3
-    key_bodies: ["left_ankle_roll_link", "right_ankle_roll_link", "head_link", "left_wrist_yaw_link", "right_wrist_yaw_link"]
+    key_bodies: ["left_ankle_roll_link", "right_ankle_roll_link", "left_wrist_yaw_link", "right_wrist_yaw_link"]
     contact_bodies: ["left_knee_link", "left_ankle_pitch_link", "left_ankle_roll_link", "right_knee_link", "right_ankle_pitch_link", "right_ankle_roll_link"]
     #contact_bodies: ["left_knee_link", "left_ankle_pitch_link", "left_ankle_roll_link", "right_knee_link", "right_ankle_pitch_link", "right_ankle_roll_link", "left_elbow_link", "left_wrist_roll_link", "left_wrist_pitch_link", "left_wrist_yaw_link", "right_elbow_link", "right_wrist_roll_link", "right_wrist_pitch_link", "right_wrist_yaw_link"] # cartwheel
     log_tracking_error: False
 
-    # motion_file: "data/motions/urdf0924/stand_to_run.pkl"
-    motion_file: "data/motions/g1/g1_run.pkl"
+    motion_file: "data/motions/urdf0924/run2_subject1_urdf0924.pkl"
+    # motion_file: "data/motions/g1/g1_run.pkl"
 
-    joint_err_w: [1.0, 1.0, 1.0, 0.6, 0.5, 0.5, 1.0, 1.0, 1.0, 0.6, 0.5, 0.5, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.6, 0.5, 0.5, 0.5, 1.0, 1.0, 1.0, 0.6, 0.5, 0.5, 0.5]
+    joint_err_w: [1.0, 1.0, 1.0, 0.6, 0.5,
+     0.5, 1.0, 1.0, 1.0, 0.6,
+     0.5, 0.5, 1.0, 1.0, 1.0, 
+     0.0, 1.0, 1.0, 1.0, 0.6, 
+     0.5, 0.5, 0.5, 1.0, 1.0, 
+     1.0, 0.6]
  
     reward_pose_w: 0.5
     reward_vel_w: 0.1
