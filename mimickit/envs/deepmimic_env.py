@@ -706,7 +706,7 @@ def compute_deepmimic_obs(root_pos, root_rot, root_vel, root_ang_vel, joint_rot,
                                             dof_vel=dof_vel,
                                             key_pos=key_pos,
                                             global_obs=global_obs,
-                                            root_height_obs=root_height_obs)
+                                            root_height_obs=root_height_obs) #parameter_wwj
     obs = [char_obs]
 
     if (enable_phase_obs):
