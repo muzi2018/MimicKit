@@ -1612,9 +1612,9 @@
   </joint>
 </robot>
 
-<mujoco>
+<!-- <mujoco>
       <compiler 
       meshdir="../meshes/" 
       balanceinertia="true" 
       discardvisual="false" />
-</mujoco>
+</mujoco> -->
