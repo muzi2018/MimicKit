@@ -17,12 +17,12 @@ env:
     zero_center_action: True
 
     ref_char_offset: [2.0, 0.0, 0.0] #parameters_wwj Offset between simulated character and reference motion in space (e.g., to avoid overlap or ensure visibility).
-    init_pose: [0, 0, 0.8, 0, 0, 0, 0,
-                0, 0, 0, 0, 0,
+    init_pose: [0, 0, 0.8, 0, 0, 0, # 6 pelvis
+                0, 0, 0, 0, 0, 0, # 6
                 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0,
                 1.57, 0, 0, 0, 0, 0,
-                0, 1.57, 0, 0, 0] #parameters_wwj 36
+                0, 1.57, 0, 0, 0] #parameters_wwj 35
 
     enable_early_termination: True
     termination_height: 0.3 #parameters_wwj, a minimum allowed root-body height (in meters).
