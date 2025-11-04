@@ -51,7 +51,7 @@ env:
 
     joint_err_w: [1.0, 1.0, 1.0, 0.6, 0.5, 0.5,
                   1.0, 1.0, 1.0, 0.6, 0.5, 0.5, 
-                  1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 
+                  1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 
                   1.0, 0.6, 0.5, 0.5, 0.5, 1.0, 
                   1.0, 1.0, 0.5] #parameters_wwj Weights for each joint’s contribution to pose tracking loss. 
  
