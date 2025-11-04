@@ -1,7 +1,7 @@
 ﻿env_name: "deepmimic"
 
 env:
-    char_file: "data/assets/xml0924/urdf0924.xml" #parameters 29
+    char_file: "data/assets/xml0924/urdf0924.xml" #parameters 27
     camera_mode: "track"
 
     episode_length: 10.0 # seconds
@@ -49,12 +49,11 @@ env:
     motion_file: "data/motions/urdf0924/run2_subject1_urdf0924.pkl"
     # motion_file: "data/motions/g1/g1_run.pkl"
 
-    joint_err_w: [1.0, 1.0, 1.0, 0.6, 0.5,
-                  0.5, 1.0, 1.0, 1.0, 0.6,
-                  0.5, 0.5, 1.0, 1.0, 1.0, 
-                  0.0, 1.0, 1.0, 1.0, 0.6, 
-                  0.5, 0.5, 0.5, 1.0, 1.0, 
-                  1.0, 0.6]
+    joint_err_w: [1.0, 1.0, 1.0, 0.6, 0.5, 0.5,
+                  1.0, 1.0, 1.0, 0.6, 0.5, 0.5, 
+                  1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 
+                  1.0, 0.6, 0.5, 0.5, 0.5, 1.0, 
+                  1.0, 1.0, 0.5] #parameters_wwj Weights for each joint’s contribution to pose tracking loss. 
  
     reward_pose_w: 0.5
     reward_vel_w: 0.1
