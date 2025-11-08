@@ -31,8 +31,7 @@ env:
     #contact_bodies: ["left_knee_link", "left_ankle_pitch_link", "left_ankle_roll_link", "right_knee_link", "right_ankle_pitch_link", "right_ankle_roll_link", "left_elbow_link", "left_wrist_roll_link", "left_wrist_pitch_link", "left_wrist_yaw_link", "right_elbow_link", "right_wrist_roll_link", "right_wrist_pitch_link", "right_wrist_yaw_link"] # cartwheel
     log_tracking_error: False
 
-    # motion_file: "data/motions/urdf0924/stand_to_run.pkl"
-    motion_file: "data/motions/g1/g1_run.pkl"
+    motion_file: "data/motions/g1/g1_walk.pkl"
     # motion_file: "data/motions/g1/walk1_subject1_g1.pkl"
 
 
