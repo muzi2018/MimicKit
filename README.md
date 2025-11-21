@@ -18,7 +18,7 @@ We also include the following RL algorithms:
 
 ## Installation
 
-Install IsaacGym: https://developer.nvidia.com/isaac-gym
+Install IsaacGym:
 
 Install requirements:
 

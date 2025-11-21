@@ -26,7 +26,9 @@ env:
     #contact_bodies: [] # roll and crawl
     log_tracking_error: False
 
-    motion_file: "data/motions/humanoid/humanoid_spinkick.pkl" #parameter_wwj
+    # motion_file: "data/motions/humanoid/humanoid_spinkick.pkl" #parameter_wwj
+    motion_file: "data/motions/g1/g1_output.pkl" #parameter_wwj
+
 
     joint_err_w: [1.0, 0.6, 0.6, 0.4, 0.0, 0.6, 0.4, 0.0, 1.0, 0.6, 0.4, 1.0, 0.6, 0.4] #parameter_wwj
  
