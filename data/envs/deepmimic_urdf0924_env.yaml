@@ -4,7 +4,7 @@ env:
     char_file: "data/assets/xml0924/urdf0924.xml" #parameters 27
     camera_mode: "track"
 
-    episode_length: 10.0 # seconds
+    episode_length: 3.0 # seconds
     global_obs: True
     root_height_obs: True
     pose_termination: True
